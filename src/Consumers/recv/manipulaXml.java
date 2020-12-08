@@ -7,18 +7,19 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class manipulaXml {
+public class ManipulaXml {
         
-    public String caminho = "C:\\Users\\Alex\\Desktop\\NFe.xml";
+    public String caminho = "C:\\Users\\Alex\\Desktop\\Teste01.xml";
     
-    public String arrayListParaXml(ArrayList lista){
+    public String arrayListParaXml(NFe lista){
 
         // Instanciando XStream para gerar xml
         XStream xstream = new XStream(new DomDriver());
-//        xstream.alias("Produto", NFe.class); // Trocando nome do campo na tabela xml
+        xstream.alias("NFe", NFe.class); // Trocando nome do campo na tabela xml
 
         // Gerando a tabela xml com a classe ListaDados
         String xml = xstream.toXML(lista);
@@ -47,7 +48,7 @@ public class manipulaXml {
             print.close();
 
         } catch (FileNotFoundException ex){
-            Logger.getLogger(manipulaXml.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManipulaXml.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             print.close();
         }

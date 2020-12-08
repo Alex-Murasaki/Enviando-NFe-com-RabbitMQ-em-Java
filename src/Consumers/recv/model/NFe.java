@@ -1,6 +1,5 @@
 package Consumers.recv.model;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -8,52 +7,52 @@ import java.util.ArrayList;
  */
 public class NFe {
     
-    private ArrayList<String> geral = new ArrayList<>();
-    private ArrayList<String> destinatario = new ArrayList<>();
-    private ArrayList<String> fatura = new ArrayList<>();
-    private ArrayList<String> transportador = new ArrayList<>();
+    Geral geral = new Geral();
+    Destinatario destinatario = new Destinatario();
+    Fatura fatura = new Fatura();
+    Transportador transportador = new Transportador();
 
     public NFe(
-            ArrayList<String> geral, 
-            ArrayList<String> destinatario, 
-            ArrayList<String> fatura, 
-            ArrayList<String> transportador
+            Geral geral,
+            Destinatario destinatario,
+            Fatura fatura,
+            Transportador transportador
     ) {
         this.geral = geral;
-        this.destinatario= destinatario;
+        this.destinatario = destinatario;
         this.fatura = fatura;
         this.transportador = transportador;
     }
-
-    public ArrayList<String> getGeral() {
+    
+    public Geral getGeral() {
         return geral;
     }
 
-    public void setGeral(ArrayList<String> geral) {
+    public void setGeral(Geral geral) {
         this.geral = geral;
     }
 
-    public ArrayList<String> getDestinatario() {
+    public Destinatario getDestinatario() {
         return destinatario;
     }
 
-    public void setDestinatario(ArrayList<String> destinatario) {
+    public void setDestinatario(Destinatario destinatario) {
         this.destinatario = destinatario;
     }
 
-    public ArrayList<String> getFatura() {
+    public Fatura getFatura() {
         return fatura;
     }
 
-    public void setFatura(ArrayList<String> fatura) {
+    public void setFatura(Fatura fatura) {
         this.fatura = fatura;
     }
 
-    public ArrayList<String> getTransportador() {
+    public Transportador getTansportador() {
         return transportador;
     }
 
-    public void setTransportador(ArrayList<String> transportador) {
+    public void setTansportador(Transportador transportador) {
         this.transportador = transportador;
     }
     

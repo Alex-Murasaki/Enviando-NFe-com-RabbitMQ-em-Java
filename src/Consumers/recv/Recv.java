@@ -6,6 +6,8 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author Alex
@@ -37,6 +39,7 @@ public class Recv {
         
         NFe nfe;
         
+        ArrayList<NFe> nfeArray = new ArrayList<>();
         ArrayList<String> geral = new ArrayList<>();
         ArrayList<String> destinatario = new ArrayList<>();
         ArrayList<String> fatura = new ArrayList<>();
@@ -61,7 +64,19 @@ public class Recv {
             }
         }
         
+        
+        
         nfe = new NFe(geral, destinatario, fatura, transportador);
+        nfeArray.add(nfe);
+        
+        Map<String, String> map = new HashMap<String, String>();
+        
+        String sim = "nao";
+        
+        ManipulaXml manipulaXml = new ManipulaXml();
+        manipulaXml.gerarArquivo(
+                manipulaXml.arrayListParaXml(nfe)
+        );
         
     }
     
