@@ -1,5 +1,6 @@
 package Consumers.recv;
 
+import Consumers.recv.model.NFe;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -34,6 +35,8 @@ public class Recv {
     public static void breakMessage(String msg) {
         String[] str = msg.split(";");
         
+        NFe nfe;
+        
         ArrayList<String> geral = new ArrayList<>();
         ArrayList<String> destinatario = new ArrayList<>();
         ArrayList<String> fatura = new ArrayList<>();
@@ -57,6 +60,8 @@ public class Recv {
                 System.out.println("D - "+ i +": "+ str[i]);
             }
         }
+        
+        nfe = new NFe(geral, destinatario, fatura, transportador);
         
     }
     
