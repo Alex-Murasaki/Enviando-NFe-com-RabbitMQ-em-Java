@@ -15,6 +15,18 @@ public class Transportador {
     private String especie;
     private String peso;
 
+    public Transportador(String nome, String cnpj, String placa, String endereco, String municipio, String uf, String quantidade, String especie, String peso) {
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.placa = placa;
+        this.endereco = endereco;
+        this.municipio = municipio;
+        this.uf = uf;
+        this.quantidade = quantidade;
+        this.especie = especie;
+        this.peso = peso;
+    }
+    
     public String getNome() {
         return nome;
     }

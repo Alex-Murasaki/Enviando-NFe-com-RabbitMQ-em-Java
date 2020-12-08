@@ -10,6 +10,13 @@ public class Geral{
     private String natureza;
     private String cnpj;
 
+    public Geral(String numero, String serie, String natureza, String cnpj) {
+        this.numero = numero;
+        this.serie = serie;
+        this.natureza = natureza;
+        this.cnpj = cnpj;
+    }
+    
     public String getNumero() {
         return numero;
     }

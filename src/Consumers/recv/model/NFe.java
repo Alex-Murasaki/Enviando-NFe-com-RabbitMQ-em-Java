@@ -1,16 +1,14 @@
 package Consumers.recv.model;
-
-
 /**
  *
  * @author Alex
  */
 public class NFe {
     
-    Geral geral = new Geral();
-    Destinatario destinatario = new Destinatario();
-    Fatura fatura = new Fatura();
-    Transportador transportador = new Transportador();
+    Geral geral;
+    Destinatario destinatario;
+    Fatura fatura;
+    Transportador transportador;
 
     public NFe(
             Geral geral,

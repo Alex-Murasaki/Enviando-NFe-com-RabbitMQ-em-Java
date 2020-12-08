@@ -9,6 +9,12 @@ public class Fatura {
     private String vencimento;
     private String valor;
 
+    public Fatura(String numero, String vencimento, String valor) {
+        this.numero = numero;
+        this.vencimento = vencimento;
+        this.valor = valor;
+    }
+    
     public String getNumero() {
         return numero;
     }
@@ -32,7 +38,5 @@ public class Fatura {
     public void setValor(String valor) {
         this.valor = valor;
     }
-    
-    
-    
+
 }

@@ -15,14 +15,14 @@ public class ManipulaXml {
         
     public String caminho = "C:\\Users\\Alex\\Desktop\\Teste01.xml";
     
-    public String arrayListParaXml(NFe lista){
+    public String transformeEmStringXml(Object obj){
 
         // Instanciando XStream para gerar xml
         XStream xstream = new XStream(new DomDriver());
         xstream.alias("NFe", NFe.class); // Trocando nome do campo na tabela xml
 
-        // Gerando a tabela xml com a classe ListaDados
-        String xml = xstream.toXML(lista);
+        // Gerando a tabela xml com o objeto passado
+        String xml = xstream.toXML(obj);
 
         // Printando para teste
 //        System.out.println(xml);

@@ -5,6 +5,7 @@ package Consumers.recv.model;
  */
 public class Destinatario{
 
+
     private String razaoSocial;
     private String cnpj;
     private String endereco;
@@ -14,6 +15,17 @@ public class Destinatario{
     private String fone;
     private String uf;
 
+    public Destinatario(String razaoSocial, String cnpj, String endereco, String bairro, String cep, String municipio, String fone, String uf) {
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.municipio = municipio;
+        this.fone = fone;
+        this.uf = uf;
+    }
+   
     public String getRazaoSocial() {
         return razaoSocial;
     }
