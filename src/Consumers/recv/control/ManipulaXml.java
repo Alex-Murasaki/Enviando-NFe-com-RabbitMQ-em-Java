@@ -1,4 +1,4 @@
-package Consumers.recv;
+package Consumers.recv.control;
 
 import Consumers.recv.model.NFe;
 import com.thoughtworks.xstream.XStream;
