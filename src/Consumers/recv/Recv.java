@@ -1,11 +1,6 @@
 package Consumers.recv;
 
 import Consumers.recv.control.ManipulaXml;
-import Consumers.recv.model.Destinatario;
-import Consumers.recv.model.Fatura;
-import Consumers.recv.model.Geral;
-import Consumers.recv.model.NFe;
-import Consumers.recv.model.Transportador;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
