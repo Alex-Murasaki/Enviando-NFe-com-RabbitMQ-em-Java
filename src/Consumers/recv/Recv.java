@@ -10,7 +10,6 @@ import com.rabbitmq.client.DeliverCallback;
  * @author Alex
  */
 public class Recv {
-    
     // A fila de mensagens do RabbitMQ
     private final static String QUEUE_NAME = "hello";
 

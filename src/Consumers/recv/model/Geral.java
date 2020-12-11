@@ -6,13 +6,11 @@ package Consumers.recv.model;
 public class Geral{
     
     private String numero;
-    private String serie;
     private String natureza;
     private String cnpj;
 
-    public Geral(String numero, String serie, String natureza, String cnpj) {
+    public Geral(String numero, String natureza, String cnpj) {
         this.numero = numero;
-        this.serie = serie;
         this.natureza = natureza;
         this.cnpj = cnpj;
     }
@@ -23,14 +21,6 @@ public class Geral{
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    public String getSerie() {
-        return serie;
-    }
-
-    public void setSerie(String serie) {
-        this.serie = serie;
     }
 
     public String getNatureza() {
