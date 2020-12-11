@@ -24,7 +24,6 @@ public class Send {
         // informações gerais da nfe
         Geral geral = new Geral(
                 "000123", // numero
-                "1", // serie
                 "Venda de Mercadoria", // natureza
                 "111.222.333-45" // cnpj
         );
@@ -36,25 +35,21 @@ public class Send {
                 "Centro", // bairro
                 "75.603-000", // cep
                 "Porteirao", // municipio
-                "3643-xxxx", // fone
                 "GO" // uf
         );
         // informações de fatura da nfe
         Fatura fatura = new Fatura(
-              "000123", // numero
               "11/12/2020", // vencimento
               "999,90" // valor
         );
         // informações de transportador da nfe
         Transportador transportador = new Transportador(
-                "Einstein Físico", // nome
                 "777.666.555-01", // cpf/cnpj
                 "ABC-0101", // placa
                 "Rua Limoeiro Vermelho", // endereço
                 "Christanópolis", // municipio
                 "GO", // uf
                 "2", // quantidade
-                "Caixa", // espécie
                 "10kg" // peso
         );
         // constói a nfe com suas dependencias

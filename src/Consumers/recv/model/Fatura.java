@@ -5,22 +5,12 @@ package Consumers.recv.model;
  */
 public class Fatura {
 
-    private String numero;
     private String vencimento;
     private String valor;
 
-    public Fatura(String numero, String vencimento, String valor) {
-        this.numero = numero;
+    public Fatura(String vencimento, String valor) {
         this.vencimento = vencimento;
         this.valor = valor;
-    }
-    
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 
     public String getVencimento() {
