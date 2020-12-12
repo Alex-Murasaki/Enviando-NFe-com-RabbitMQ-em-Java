@@ -12,17 +12,15 @@ public class Destinatario{
     private String bairro;
     private String cep;
     private String municipio;
-    private String fone;
     private String uf;
 
-    public Destinatario(String razaoSocial, String cnpj, String endereco, String bairro, String cep, String municipio, String fone, String uf) {
+    public Destinatario(String razaoSocial, String cnpj, String endereco, String bairro, String cep, String municipio, String uf) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cep = cep;
         this.municipio = municipio;
-        this.fone = fone;
         this.uf = uf;
     }
    
@@ -72,14 +70,6 @@ public class Destinatario{
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
-    }
-
-    public String getFone() {
-        return fone;
-    }
-
-    public void setFone(String fone) {
-        this.fone = fone;
     }
 
     public String getUf() {

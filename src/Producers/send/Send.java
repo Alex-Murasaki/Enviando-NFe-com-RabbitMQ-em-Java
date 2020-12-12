@@ -1,5 +1,11 @@
 package Producers.send;
 
+import Consumers.recv.control.ManipulaXml;
+import Consumers.recv.model.Destinatario;
+import Consumers.recv.model.Fatura;
+import Consumers.recv.model.Geral;
+import Consumers.recv.model.NFe;
+import Consumers.recv.model.Transportador;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -9,79 +15,58 @@ import com.rabbitmq.client.ConnectionFactory;
  */
 public class Send {
 
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "fila_nota_fiscal";
 
     public static void main(String[] argv) throws Exception {
-        
-        String[] message = {
-            "000111;"
-            + "1;"
-            + "Venda de Mercadorias;"
-            + "111.111.111-11;"
-            + "Alberto Almeida;"
-            + "111.111.111-11;"
-            + "Rua Rio Verde;"
-            + "Centro;"
-            + "75.603-000;"
-            + "Porteirao;"
-            + "3643-xxxx;"
-            + "GO;"
-            + "000175/1;"
-            + "07/12/2020;"
-            + "100,00;"
-            + "Brenda Bernardes;"
-            + "222.222.222-22;"
-            + "AAA-0000;"
-            + "Rua Corrego Azul;"
-            + "Porteirao;"
-            + "GO;"
-            + "3;"
-            + "Caixas;"
-            + "60kg",
-            // Outra
-            "000222;"
-            + "2;"
-            + "Venda de Mercadorias;"
-            + "222.222.222-22;"
-            + "Celina Cunha;"
-            + "222.222.222-22;"
-            + "Rua Rio Verde;"
-            + "Centro;"
-            + "75.603-000;"
-            + "Porteirao;"
-            + "3643-xxxx;"
-            + "GO;"
-            + "000175/1;"
-            + "07/12/2020;"
-            + "100,00;"
-            + "Drauzio Dornelles;"
-            + "333.333.333-33;"
-            + "AAA-0000;"
-            + "Rua Corrego Azul;"
-            + "Porteirao;"
-            + "GO;"
-            + "3;"
-            + "Caixas;"
-            + "60kg",
-            // Outra
-            
-        };
-        
-        
+        // instancianco classes que serão necessárias psteriormente
+        NFe nfe; // nota fiscal eletronica
+        ManipulaXml manipulaXml = new ManipulaXml(); // formata e gera um xml
+        // informações gerais da nfe
+        Geral geral = new Geral(
+                "000123", // numero
+                "Venda de Mercadoria", // natureza
+                "111.222.333-45" // cnpj
+        );
+        // informações de destinatario da nfe
+        Destinatario destinatario = new Destinatario(
+                "Aristóteles Phylosofo", // razao social
+                "555.444.333-21", // cnpj
+                "Rua Rio Verde", // endereco
+                "Centro", // bairro
+                "75.603-000", // cep
+                "Porteirao", // municipio
+                "GO" // uf
+        );
+        // informações de fatura da nfe
+        Fatura fatura = new Fatura(
+              "11/12/2020", // vencimento
+              "999,90" // valor
+        );
+        // informações de transportador da nfe
+        Transportador transportador = new Transportador(
+                "777.666.555-01", // cpf/cnpj
+                "ABC-0101", // placa
+                "Rua Limoeiro Vermelho", // endereço
+                "Christanópolis", // municipio
+                "GO", // uf
+                "2", // quantidade
+                "10kg" // peso
+        );
+        // constói a nfe com suas dependencias
+        nfe = new NFe(geral, destinatario, fatura, transportador);
+        // transfoma a classe nfe em uma string com formato xml
+        String menssagem = manipulaXml.transformeEmStringXml(nfe);
+        // cria conexão utilizando a factory
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        
+        // tenta conexão, envia mensagem, etc
         try (Connection connection = factory.newConnection();
             Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             
+            channel.basicPublish("", QUEUE_NAME, null, menssagem.getBytes());
             
-            /*for (int i = 0; i < message.length; i++) {
-                channel.basicPublish("", QUEUE_NAME, null, message[i].getBytes());
-            }*/
-            channel.basicPublish("", QUEUE_NAME, null, message[1].getBytes());
-            
-            System.out.println("!!SUCESSO!!");
+            System.out.println("!! CONSEGUIUUUUU !!");
         }
     }
 }

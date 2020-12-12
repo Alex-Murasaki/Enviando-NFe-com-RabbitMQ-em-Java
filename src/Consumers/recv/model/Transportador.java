@@ -5,34 +5,22 @@ package Consumers.recv.model;
  */
 public class Transportador {
 
-    private String nome;
     private String cnpj;
     private String placa;
     private String endereco;
     private String municipio;
     private String uf;
     private String quantidade;
-    private String especie;
     private String peso;
 
-    public Transportador(String nome, String cnpj, String placa, String endereco, String municipio, String uf, String quantidade, String especie, String peso) {
-        this.nome = nome;
+    public Transportador(String cnpj, String placa, String endereco, String municipio, String uf, String quantidade, String peso) {
         this.cnpj = cnpj;
         this.placa = placa;
         this.endereco = endereco;
         this.municipio = municipio;
         this.uf = uf;
         this.quantidade = quantidade;
-        this.especie = especie;
         this.peso = peso;
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getCnpj() {
@@ -81,14 +69,6 @@ public class Transportador {
 
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public String getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
     }
 
     public String getPeso() {
