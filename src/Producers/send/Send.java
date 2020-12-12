@@ -15,7 +15,7 @@ import com.rabbitmq.client.ConnectionFactory;
  */
 public class Send {
 
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "fila_nota_fiscal";
 
     public static void main(String[] argv) throws Exception {
         // instancianco classes que serão necessárias psteriormente

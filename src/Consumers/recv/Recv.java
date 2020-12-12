@@ -11,7 +11,7 @@ import com.rabbitmq.client.DeliverCallback;
  */
 public class Recv {
     // A fila de mensagens do RabbitMQ
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "fila_nota_fiscal";
 
     public static void main(String[] argv) throws Exception {
         // Conecta com localhost usando a factory
